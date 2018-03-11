@@ -28,7 +28,7 @@ const paths = {
   },
   images: {
     src: './src/img/**/*.*',
-    dest: './build/assets/images/'
+    dest: './build/assets/img/'
   },
   fonts: {
     src: './src/fonts/**/*.*',
