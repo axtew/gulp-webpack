@@ -12,6 +12,7 @@ const gulp = require('gulp'),
       browserSync = require('browser-sync').create(),
       gulpWebpack = require('gulp-webpack'),
       webpack = require('webpack'),
+      sassGlob = require('gulp-sass-glob'),
       webpackConfig = require('./webpack.config.js');
 
 const paths = {
@@ -53,7 +54,7 @@ function server() {
   browserSync.init({
     server: paths.root
   });
-  browserSync.watch(paths.root + '**/*.*', browserSync.reload);
+  browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
 
 // перенос картинок
@@ -78,6 +79,7 @@ function templates() {
 // компиляция scss
 function styles() {
   return gulp.src('./src/scss/main.scss')
+    .pipe(sassGlob())
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(

@@ -6,8 +6,12 @@ const config = {
         filename: 'bandle.js'
     },
     plugins: [
-        new uglifyJS({
+        new uglifyJS ({
             sourceMap: true
+        }),
+        new webpack.ProvidePlugin ({
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ]
 };
